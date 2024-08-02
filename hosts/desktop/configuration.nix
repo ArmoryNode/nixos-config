@@ -1,7 +1,4 @@
-{ config, lib, inputs, ... }:
-let
-  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-in
+{ config, pkgs, lib, inputs, ... }:
 {
   services.flatpak.packages = [
     "com.belmoussaoui.Decoder"
@@ -16,7 +13,7 @@ in
   ];
 
   # Networking
-  networking.hostName = "ArmoryNIX";
+  networking.hostName = "ArmoryNix";
   networking.networkmanager.enable = true;
 
   # Timezone
@@ -50,22 +47,22 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+  # # Enable sound with pipewire.
+  # sound.enable = true;
+  # hardware.pulseaudio.enable = false;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   # If you want to use JACK applications, uncomment this
+  #   #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  #   # use the example session manager (no others are packaged yet so this is enabled by default,
+  #   # no need to redefine it in your config for now)
+  #   #media-session.enable = true;
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.armorynode = {
@@ -123,7 +120,7 @@ in
     go
     python3 
     distrobox
-    ffmpeg_5-full
+    ffmpeg_7-full
     nurl
 
     # For Podman
@@ -149,7 +146,7 @@ in
   # Configure home manager
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.nixos = import ./home.nix;
+  home-manager.users.armorynode = import ./home.nix;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

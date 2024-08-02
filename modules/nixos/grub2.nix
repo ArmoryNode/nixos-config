@@ -1,6 +1,8 @@
 { config, pkgs, inputs, ... }:
 {
-  imports = [ "../../hardware-configuration.nix" ];
+  imports = [ 
+    ../../hardware-configuration.nix
+  ];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -9,6 +11,6 @@
       devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
-    }
+    };
   };
 }

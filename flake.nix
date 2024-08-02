@@ -3,6 +3,7 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nix-software-center.url = "github:snowfallorg/nix-software-center";
 
     # WSL-specific
     vscode-server.url = "github:nix-community/nixos-vscode-server";
@@ -30,6 +31,7 @@
           ./modules/nvidia/stable.nix
           ./modules/desktop-environments/kde-plasma.nix
           home-manager.nixosModules.home-manager
+          nix-flatpak.nixosModules.nix-flatpak
         ];
       };
       

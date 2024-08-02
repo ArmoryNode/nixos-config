@@ -1,8 +1,8 @@
 { config, pkgs, imports, ... }:
 {
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.desktopManager.plasma5.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Exclude some KDE stuff
   environment.plasma6.excludePackages = with pkgs.kdePackages; [

@@ -1,7 +1,5 @@
 { config, pkgs, lib, inputs, ... }:
 {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-
   home.username = "armorynode";
   home.homeDirectory = "/home/armorynode";
   home.stateVersion = "23.11";
