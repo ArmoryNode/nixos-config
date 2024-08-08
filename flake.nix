@@ -29,7 +29,7 @@
           ./modules/nixos/common.nix
           ./modules/nixos/grub2.nix
           ./modules/nvidia/stable.nix
-          ./modules/desktop-environments/kde-plasma.nix
+          ./modules/desktop-environments/gnome.nix
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
         ];
