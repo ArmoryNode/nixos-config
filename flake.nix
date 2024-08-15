@@ -25,13 +25,13 @@
         };
 
         modules = [
+          home-manager.nixosModules.home-manager
+          nix-flatpak.nixosModules.nix-flatpak
           ./hosts/desktop/configuration.nix
           ./modules/nixos/common.nix
           ./modules/nixos/grub2.nix
           ./modules/nvidia/stable.nix
           ./modules/desktop-environments/gnome.nix
-          home-manager.nixosModules.home-manager
-          nix-flatpak.nixosModules.nix-flatpak
         ];
       };
       
@@ -43,10 +43,10 @@
         };
 
         modules = [
-          ./hosts/wsl/configuration.nix
-          ./modules/nixos/common.nix
           home-manager.nixosModules.home-manager
           vscode-server.nixosModules.default
+          ./hosts/wsl/configuration.nix
+          ./modules/nixos/common.nix
         ];
       };
     };

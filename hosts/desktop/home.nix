@@ -1,5 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 {
+  # Configure home manager
   home.username = "armorynode";
   home.homeDirectory = "/home/armorynode";
   home.stateVersion = "23.11";
@@ -12,6 +13,7 @@
 
     # Customization
     papirus-icon-theme
+    gnome-tweaks
 
     # Development
     jetbrains.rider
@@ -56,7 +58,28 @@
 	      "Inconsolata"
       ];
     })
+  ]) ++ (with pkgs.gnomeExtensions; [
+    blur-my-shell
+    just-perfection
+    reboottouefi
+    dash-to-dock
+    appindicator
   ]);
+
+  # Additional GNOME configuration
+  dconf = {
+    enable = true;
+    settings."org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [ 
+        blur-my-shell.extensionUuid
+        dash-to-dock.extensionUuid
+        appindicator.extensionUuid
+        reboottouefi.extensionUuid
+        just-perfection.extensionUuid
+      ];
+    };
+  };
 
   # Configure git
   programs.git = {
