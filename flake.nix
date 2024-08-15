@@ -34,6 +34,23 @@
           ./modules/desktop-environments/gnome.nix
         ];
       };
+
+      thinkpad = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {
+          inherit inputs;
+        };
+
+        modules = [
+          home-manager.nixosModules.home-manager
+          nix-flatpak.nixosModules.nix-flatpak
+          ./hosts/thinkpad/configuration.nix
+          ./modules/nixos/common.nix
+          ./modules/nixos/grub2.nix
+          ./modules/desktop-environments/gnome.nix
+        ];
+      };
       
       wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
