@@ -135,7 +135,7 @@
     # Enable podman support
     virtualisation.containers.enable = true;
     virtualisation = { 
-            podman = {
+        podman = {
             enable = true;
             dockerCompat = true;
             defaultNetwork.settings.dns_enabled = true;
@@ -147,10 +147,13 @@
         wantedBy = [ "multi-user.target" ];
         serviceConfig.Type = "simple";
     };
-
-    # Install the driver
     services.fprintd.enable = true;
     services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
+    # Configure direnv
+    programs.direnv = {
+        enable = true;
+    };
 
     # Configure home manager
     home-manager.useGlobalPkgs = true;
