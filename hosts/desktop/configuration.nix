@@ -1,39 +1,13 @@
 { config, pkgs, lib, inputs, ... }:
 {
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nvidia/stable.nix
+  ];
+
   # Networking
   networking.hostName = "ArmoryNix";
   networking.networkmanager.enable = true;
-
-  # Timezone
-  time.timeZone = "America/Los_Angeles";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # Setup locale settings
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.armorynode = {
@@ -80,9 +54,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable flatpak support
-  services.flatpak.enable = true;
-
   # Add system packages  
   environment.systemPackages = with pkgs; [
     inputs.nix-software-center.packages.${system}.nix-software-center
@@ -98,35 +69,6 @@
     dive
     podman-tui
     podman-compose
-  ];
-
-  # Exclude gnome packages
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-connections
-    epiphany
-    geary
-    evince
-  ];
-
-  # Add udev packages
-  services.udev.packages = with pkgs; [
-    gnome.gnome-settings-daemon
-  ];
-
-  # Configure flatpaks
-  services.flatpak.packages = [
-    "com.belmoussaoui.Decoder"
-    "com.discordapp.Discord"
-    "com.spotify.Client"
-    "page.kramo.Cartridges"
-    "eu.betterbird.Betterbird"
-    "org.libreoffice.LibreOffice"
-    "com.valvesoftware.Steam"
-    "com.github.tchx84.Flatseal"
-    "com.github.hugolabe.Wike"
-    "io.podman_desktop.PodmanDesktop"
-    "com.mattjakeman.ExtensionManager"
   ];
 
   # Enable ZSH and set it as the default shell

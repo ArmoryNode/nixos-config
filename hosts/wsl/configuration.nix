@@ -1,10 +1,8 @@
 { config, lib, inputs, ... }:
-let
-  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
+    inputs.vscode-server.nixosModules.default
   ];
 
   wsl = {

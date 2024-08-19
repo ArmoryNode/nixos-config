@@ -1,9 +1,30 @@
 { config, pkgs, lib, inputs, ... }:
 {
+    imports = [
+        inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    ];
+
     # Configure home manager
     home.username = "armorynode";
     home.homeDirectory = "/home/armorynode";
     home.stateVersion = "23.11";
+
+    # Flatpaks
+    services.flatpak.enable = true;
+    services.flatpak.packages = [
+        "com.belmoussaoui.Decoder"
+        "com.discordapp.Discord"
+        "com.spotify.Client"
+        "page.kramo.Cartridges"
+        "eu.betterbird.Betterbird"
+        "org.libreoffice.LibreOffice"
+        "com.valvesoftware.Steam"
+        "com.github.tchx84.Flatseal"
+        "com.github.hugolabe.Wike"
+        "io.podman_desktop.PodmanDesktop"
+        "com.mattjakeman.ExtensionManager"
+        "com.mastermindzh.tidal-hifi"
+    ];
 
     # Packages
     nixpkgs.config.allowUnfree = true;
@@ -64,6 +85,7 @@
         reboottouefi
         dash-to-dock
         appindicator
+        wireguard-vpn-extension
     ]);
 
     # Additional GNOME configuration
@@ -77,6 +99,7 @@
                 appindicator.extensionUuid
                 reboottouefi.extensionUuid
                 just-perfection.extensionUuid
+                wireguard-vpn-extension.extensionUuid
             ];
         };
     };
@@ -120,6 +143,7 @@
             visualstudioexptteam.vscodeintellicode
             ms-dotnettools.csharp
             ms-dotnettools.csdevkit
+            # github.copilot
         ];
     };
 
