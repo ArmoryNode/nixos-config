@@ -11,8 +11,8 @@
 
   # Flatpaks
   services.flatpak.enable = true;
+  services.flatpak.uninstallUnmanaged = true;
   services.flatpak.packages = [
-    "com.belmoussaoui.Decoder"
     "com.discordapp.Discord"
     "com.spotify.Client"
     "page.kramo.Cartridges"
@@ -53,6 +53,7 @@
     bat
     fastfetch
     geekbench
+    gnome.gnome-software
 
     # Work
     slack

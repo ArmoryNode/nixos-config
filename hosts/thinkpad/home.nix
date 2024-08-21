@@ -11,8 +11,8 @@
 
   # Flatpaks
   services.flatpak.enable = true;
+  services.flatpak.uninstallUnmanaged = true;
   services.flatpak.packages = [
-    "com.belmoussaoui.Decoder"
     "com.discordapp.Discord"
     "com.spotify.Client"
     "page.kramo.Cartridges"
@@ -22,7 +22,6 @@
     "com.github.tchx84.Flatseal"
     "com.github.hugolabe.Wike"
     "io.podman_desktop.PodmanDesktop"
-    "com.mattjakeman.ExtensionManager"
     "com.mastermindzh.tidal-hifi"
   ];
 
