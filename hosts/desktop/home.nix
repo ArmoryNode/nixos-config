@@ -13,16 +13,15 @@
   services.flatpak.enable = true;
   services.flatpak.uninstallUnmanaged = true;
   services.flatpak.packages = [
-    "com.discordapp.Discord"
     "com.spotify.Client"
+    "com.discordapp.Discord"
+    "com.valvesoftware.Steam"
     "page.kramo.Cartridges"
     "eu.betterbird.Betterbird"
     "org.libreoffice.LibreOffice"
-    "com.valvesoftware.Steam"
-    "com.github.tchx84.Flatseal"
     "com.github.hugolabe.Wike"
+    "com.github.tchx84.Flatseal"
     "io.podman_desktop.PodmanDesktop"
-    "com.mattjakeman.ExtensionManager"
   ];
 
   # Packages
@@ -33,7 +32,6 @@
 
     # Customization
     papirus-icon-theme
-    gnome-tweaks
 
     # Development
     jetbrains.rider
@@ -53,7 +51,6 @@
     bat
     fastfetch
     geekbench
-    gnome.gnome-software
 
     # Work
     slack
@@ -73,28 +70,7 @@
         "Inconsolata"
       ];
     })
-  ]) ++ (with pkgs.gnomeExtensions; [
-    blur-my-shell
-    just-perfection
-    reboottouefi
-    dash-to-dock
-    appindicator
   ]);
-
-  # Additional GNOME configuration
-  dconf = {
-    enable = true;
-    settings."org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = with pkgs.gnomeExtensions; [ 
-        blur-my-shell.extensionUuid
-        dash-to-dock.extensionUuid
-        appindicator.extensionUuid
-        reboottouefi.extensionUuid
-        just-perfection.extensionUuid
-      ];
-    };
-  };
 
   # Configure git
   programs.git = {
