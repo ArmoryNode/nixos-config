@@ -87,21 +87,31 @@
     };
   };
 
-  # Configure zshell
-  programs.zsh = {
+  # Configure nushell
+  programs.nushell = {
     enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "zoxide"
-      ];
-      theme = "agnoster";
-    };
-    history.size = 10000;
-    history.path = "${config.xdg.dataHome}/zsh/history";
+    extraConfig = ''
+      $env.config = {
+        show_banner: false
+        completions: {
+          case_sensitive: false
+          quick: true
+          partial: true
+          algorithm: "Fuzzy"
+          external: {
+            enable: true
+            max_results: 100
+            completer: null
+          }
+        }
+      }
+      $env.PATH = (
+        $env.PATH | 
+        split row (char esep) |
+        prepend /home/armorynode/.apps |
+        append /usr/bin/env
+      )
+    '';
   };
   
   # Configure VSCode

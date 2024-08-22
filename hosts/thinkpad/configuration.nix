@@ -82,6 +82,9 @@
     podman-compose
   ];
 
+  # Enable Flatpak
+  services.flatpak.enable = true;
+
   # Enable podman support
   virtualisation.containers.enable = true;
   virtualisation = { 
@@ -108,9 +111,8 @@
     enable = true;
   };
 
-  # Enable ZSH and set it as the default shell
-  programs.zsh.enable = true;
-  users.users.armorynode.shell = pkgs.zsh;
+  # Set nushell as the default user shell
+  users.users.armorynode.shell = pkgs.nushell;
 
   # Configure home manager
   home-manager.useGlobalPkgs = true;
