@@ -104,15 +104,26 @@
     serviceConfig.Type = "simple";
   };
   services.fprintd.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+  services.fprintd.tod = {
+    enable = true;
+    driver = pkgs.libfprint-2-tod1-goodix-550a;
+  };
 
   # Configure direnv
   programs.direnv = {
     enable = true;
   };
 
-  # Set nushell as the default user shell
-  users.users.armorynode.shell = pkgs.nushell;
+  # Set up Nu shell
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "nu" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.nushell}/bin/nu $LOGIN_OPTION
+      fi
+    '';
+  };
 
   # Configure home manager
   home-manager.useGlobalPkgs = true;

@@ -91,29 +91,29 @@
   programs.nushell = {
     enable = true;
     extraConfig = ''
-      $env.config = {
-        show_banner: false
-        completions: {
-          case_sensitive: false
-          quick: true
-          partial: true
-          algorithm: "Fuzzy"
-          external: {
-            enable: true
-            max_results: 100
-            completer: null
-          }
+    $env.config = {
+      show_banner: false
+      completions: {
+        case_sensitive: false
+        quick: true
+        partial: true
+        algorithm: "Fuzzy"
+        external: {
+          enable: true
+          max_results: 100
+          completer: null
         }
       }
-      $env.PATH = (
-        $env.PATH | 
-        split row (char esep) |
-        prepend /home/armorynode/.apps |
-        append /usr/bin/env
-      )
+    }
+    $env.PATH = (
+      $env.PATH | 
+      split row (char esep) |
+      prepend /home/armorynode/.apps |
+      append /usr/bin/env
+    )
     '';
   };
-  
+
   # Configure VSCode
   programs.vscode = {
     enable = true;
