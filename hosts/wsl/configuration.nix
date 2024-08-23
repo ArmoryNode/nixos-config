@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
@@ -33,6 +33,7 @@
         sdk_6_0
         sdk_7_0
         sdk_8_0
+        sdk_9_0
       ])
       csharprepl
       git-credential-manager
@@ -43,12 +44,27 @@
     ];
   };
 
-  # Enable ZSH and set it as the default shell
-  programs.zsh.enable = true;
-  users.users.nixos.shell = pkgs.zsh;
+  # Configure Nushell to be the default shell
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "nu" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.nushell}/bin/nu $LOGIN_OPTION
+      fi
+    '';
+  };
 
   # Configure home manager
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.nixos = import ./home.nix;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

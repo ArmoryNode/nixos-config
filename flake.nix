@@ -26,7 +26,6 @@
           modules = [
             ./hosts/${hostname}/configuration.nix
             ./modules/nixos/common.nix
-            ./modules/nixos/grub2.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {

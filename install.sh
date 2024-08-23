@@ -74,6 +74,7 @@ rsync -av --quiet \
     --include="flake.lock" \
     --include="hosts/***" \
     --include="modules/***" \
+    --include="home/***" \
     --exclude='*' \
     ./ $DEST_DIR
 

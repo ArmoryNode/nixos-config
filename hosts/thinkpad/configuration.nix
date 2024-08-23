@@ -1,8 +1,14 @@
 { config, pkgs, lib, inputs, ... }:
+let
+  hardwareConfig = ../../hardware-configuration.nix;
+  bootloader = ../../modules/bootloaders/grub2.nix;
+  desktopEnv = ../../modules/desktop-environments/gnome.nix;
+in
 {
   imports = [
-    ./hardware-configuration.nix
-    ../../modules/desktop-environments/gnome.nix
+    hardwareConfig
+    bootloader
+    desktopEnv
   ];
 
   # Networking
