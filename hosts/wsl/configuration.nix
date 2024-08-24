@@ -56,8 +56,6 @@
   };
 
   # Configure home manager
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
   home-manager.users.nixos = import ./home.nix;
 
   # This value determines the NixOS release from which the default

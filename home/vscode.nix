@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Configure VSCode
   programs.vscode = {
@@ -10,5 +10,11 @@
       ms-dotnettools.csdevkit
       github.copilot
     ];
+
+    userSettings = {
+      "terminal.integrated.fontFamily" = "'JetBrainsMono NF'";
+      "editor.fontLigatures" = "true";
+      "editor.fontFamily" = "'JetBrainsMono NF'";
+    };
   };
 }

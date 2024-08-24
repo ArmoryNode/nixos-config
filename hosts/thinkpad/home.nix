@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 {
   # Configure home manager
   home.username = "armorynode";
@@ -11,6 +11,8 @@
     ../../home/nushell.nix
     ../../home/git.nix
     ../../home/nerdfonts.nix
+    ../../home/vscode.nix
+    ../../home/firefox.nix
   ];
 
   # Flatpaks
@@ -44,8 +46,6 @@
     git
     nodejs
     dart-sass
-    csharprepl
-    fsautocomplete
     git-credential-manager
 
     # Utilities
