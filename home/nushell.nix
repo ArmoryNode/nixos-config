@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  ohMyPoshConfigPath = "./oh-my-posh/";
+in 
 {
   # Configure nushell
   programs.nushell = {
@@ -7,15 +10,26 @@
     envFile.source = ./nushell/env.nu;
   };
 
-  # Enable carapace
-  programs.carapace.enable = true;
-  programs.carapace.enableNushellIntegration = true;
+  # Configure carapace
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 
-  # Enable zoxide
-  programs.zoxide.enable = true;
-  programs.zoxide.enableNushellIntegration = true;
+  # Configure zoxide
+  programs.zoxide = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 
-  # Enable oh-my-posh
-  programs.oh-my-posh.enable = true;
-  programs.oh-my-posh.enableNushellIntegration = true;
+  # Configure oh-my-posh
+  programs.oh-my-posh = {
+    enable = true;
+    enableNushellIntegration = true;
+    settings = builtins.fromJSON (
+      builtins.unsafeDiscardStringContext (
+        builtins.readFile ./${ohMyPoshConfigPath}/custom.omp.json
+      )
+    );
+  };
 }
