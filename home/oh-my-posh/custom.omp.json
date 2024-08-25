@@ -1,52 +1,87 @@
 {
-    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "blocks": [
-      {
-        "alignment": "left",
-        "segments": [
-          {
-            "foreground": "#ffffff",
-            "style": "plain",
-            "template": "<#C591E8>\u276f</><#69FF94>\u276f</>",
-            "type": "text"
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#26C6DA",
+          "properties": {
+            "macos": "mac"
           },
-          {
-            "foreground": "#56B6C2",
-            "properties": {
-              "style": "folder"
-            },
-            "style": "plain",
-            "template": " {{ .Path }} ",
-            "type": "path"
+          "style": "plain",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+          "type": "os"
+        },
+        {
+          "foreground": "#26C6DA",
+          "style": "plain",
+          "template": " {{ .UserName }}: ",
+          "type": "session"
+        },
+        {
+          "foreground": "lightGreen",
+          "properties": {
+            "style": "folder"
           },
-          {
-            "foreground": "#D0666F",
-            "properties": {
-              "branch_icon": "",
-              "fetch_status": false
-            },
-            "style": "plain",
-            "template": "<#5FAAE8>git:(</>{{ .HEAD }}<#5FAAE8>)</>",
-            "type": "git"
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "properties": {
+            "branch_icon": "",
+            "fetch_stash_count": true
           },
-          {
-            "foreground": "#DCB977",
-            "style": "plain",
-            "template": " \uf119",
-            "type": "status"
-          },
-          {
-            "foreground": "#66F68F",
-            "properties": {
-              "time_format": "15:04"
-            },
-            "style": "plain",
-            "template": " {{ .CurrentDate | date .Format }} ",
-            "type": "time"
-          }
-        ],
-        "type": "prompt"
-      }
-    ],
-    "version": 2
-  }
+          "style": "plain",
+          "template": "<#ffffff>on</> {{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "foreground": "#906cff",
+          "style": "powerline",
+          "template": "[\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}] ",
+          "type": "python"
+        },
+        {
+          "foreground": "#7FD5EA",
+          "style": "powerline",
+          "template": "[\ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}] ",
+          "type": "go"
+        },
+        {
+          "foreground": "#76b367",
+          "style": "powerline",
+          "template": "[\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}] ",
+          "type": "node"
+        },
+        {
+          "foreground": "#f44336",
+          "style": "powerline",
+          "template": "[\ue791{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}] ",
+          "type": "ruby"
+        },
+        {
+          "foreground": "#ea2d2e",
+          "style": "powerline",
+          "template": "[\ue738 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}] ",
+          "type": "java"
+        },
+        {
+          "foreground": "#4063D8",
+          "style": "powerline",
+          "template": " \ue624 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
+          "type": "julia"
+        },
+        {
+          "foreground": "#FFD54F",
+          "style": "plain",
+          "template": "\u276f ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 2
+}
