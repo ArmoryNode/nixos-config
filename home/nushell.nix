@@ -10,26 +10,36 @@ in
     envFile.source = ./nushell/env.nu;
   };
 
-  # Configure carapace
-  programs.carapace = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
+  # Addons and plugins
+  programs = {
+    carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
 
-  # Configure zoxide
-  programs.zoxide = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
+    zoxide = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
 
-  # Configure oh-my-posh
-  programs.oh-my-posh = {
-    enable = true;
-    enableNushellIntegration = true;
-    settings = builtins.fromJSON (
-      builtins.unsafeDiscardStringContext (
-        builtins.readFile ./${ohMyPoshConfigPath}/custom.omp.json
-      )
-    );
+    yazi = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
+
+    thefuck = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
+
+    oh-my-posh = {
+      enable = true;
+      enableNushellIntegration = true;
+      settings = builtins.fromJSON (
+        builtins.unsafeDiscardStringContext (
+          builtins.readFile ./${ohMyPoshConfigPath}/custom.omp.json
+        )
+      );
+    };
   };
 }
