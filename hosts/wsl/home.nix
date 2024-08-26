@@ -7,6 +7,9 @@
   imports = [
     ../../home/common.nix
     ../../home/nushell.nix
+    ../../home/fastfetch.nix
     ../../home/git.nix
+    ../../home/btop.nix
+    ../../home/bat.nix
   ];
 }

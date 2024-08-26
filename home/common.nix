@@ -1,13 +1,5 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    bat
-    btop
-    fastfetch
-    zoxide
-    fzf
-  ];
-
   # Configure dotfiles
   home.file = {};
 
