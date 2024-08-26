@@ -2,6 +2,14 @@
 {
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    ../../home/common.nix
+    ../../home/nushell.nix
+    ../../home/git.nix
+    ../../home/nerdfonts.nix
+    ../../home/vscode.nix
+    ../../home/firefox.nix
+    ../../home/btop.nix
+    ../../home/bat.nix
   ];
 
   # Configure home manager
