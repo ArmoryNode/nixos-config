@@ -19,9 +19,9 @@
 
     userSettings = {
       "terminal.integrated.fontFamily" = "'JetBrainsMono NF'";
-      "editor.fontLigatures" = "true";
+      "editor.fontLigatures" = true;
       "editor.fontFamily" = "'JetBrainsMono NF'";
-      "nix.enableLanguageServer" = "true";
+      "window.menuBarVisibility" = "toggle";
     };
   };
 }

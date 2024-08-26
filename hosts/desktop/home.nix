@@ -8,6 +8,7 @@
     ../../home/nerdfonts.nix
     ../../home/vscode.nix
     ../../home/firefox.nix
+    ../../home/fastfetch.nix
     ../../home/btop.nix
     ../../home/bat.nix
   ];
