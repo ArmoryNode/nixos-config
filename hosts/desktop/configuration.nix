@@ -1,6 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 let
   hardwareConfig = ../../hardware-configuration.nix;
+  nvidiaStable = ../../modules/nvidia/stable.nix;
   bootloader = ../../modules/bootloaders/grub2.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   dotnet = ../../modules/development/dotnet.nix;
@@ -11,6 +12,7 @@ in
 {
   imports = [
     hardwareConfig
+    nvidiaStable
     bootloader
     desktopEnv
     dotnet
