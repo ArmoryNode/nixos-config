@@ -67,7 +67,7 @@
 
           # Center new windows
           "org/gnome/mutter" = {
-            center-new-windows=true;
+            center-new-windows = true;
           };
 
           # Set favorite apps
