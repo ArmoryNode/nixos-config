@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -11,11 +11,15 @@
     desktopManager.gnome.enable = true;
   };
 
+  # Unlock keyring on login
+  # security.pam.services.gdm-password.enableGnomeKeyring = true;
+
   # Install gnome packages
   users.users.armorynode.packages = (with pkgs; [
     gnome-connections
     gnome-tweaks
     gnome.gnome-software
+    smile
   ]) ++ (with pkgs.gnomeExtensions; [
     blur-my-shell
     just-perfection
@@ -24,6 +28,7 @@
     appindicator
     wireguard-vpn-extension
     clipboard-history
+    smile-complementary-extension
   ]);
 
   # Install gnome-specific flatpaks
@@ -51,7 +56,6 @@
     profiles.user.databases = [
       {
         settings = {
-          # Enable user extensions
           "org/gnome/shell" = {
             disable-user-extensions = false;
             enabled-extensions = with pkgs.gnomeExtensions; [
@@ -62,39 +66,45 @@
               just-perfection.extensionUuid
               wireguard-vpn-extension.extensionUuid
               clipboard-history.extensionUuid
+              smile-complementary-extension.extensionUuid
             ];
-          };
 
-          # Center new windows
-          "org/gnome/mutter" = {
-            center-new-windows = true;
-          };
-
-          # Set favorite apps
-          "org/gnome/shell" = {
             favorite-apps = [
-              "org.gome.Nautilus.desktop"
-              "firefox.desktop"
-              "com.raggesilver.BlackBox.desktop"
+              "org.gnome.Nautilus.desktop" "firefox.desktop" "com.raggesilver.BlackBox.desktop" "code.desktop" "rider.desktop"
             ];
           };
 
-          # Dash to Dock settings
-          "org/gnome/extensions/dash-to-dock" = {
+          "org/gnome/shell/weather" = {
+            automatic-location = true;
+            locations = lib.gvariant.mkEmptyArray (lib.gvariant.type.string);
+          };
+
+          "org/gnome/shell/keybindings" = {
+            toggle-message-tray = [ "<Shift><Super>v" ];
+          };
+
+          "org/gnome/shell/extensions/dash-to-dock" = {
             apply-custom-theme = true;
             show-mounts = false;
             show-show-apps-button = false;
             show-trash = false;
           };
 
-          # Rebind notification tray to `Shift+Super+v`
-          "org/gnome/shell/keybindings" = {
-            toggle-message-tray = [ "<Shift><Super>v" ];
+          "org/gnome/shell/extensions/clipboard-history" = {
+            toggle-menu = [ "<Super>v" ];
           };
 
-          # Bind clipboard history to `Super+v` (similar to Windows clipboard)
-          "org/gnome/shell/extensions/clipboard-history" = {
-            toggle-menu=[ "<Super>v" ];
+          "org/gnome/mutter" = {
+            center-new-windows = true;
+          };
+            
+          "org/gnome/desktop/interface" = {
+            clock-format = "12h";
+            color-scheme = "prefer-dark";
+            enable-animations = true;
+            enable-hot-corners = false;
+            gtk-enable-primary-paste = false;
+            icon-theme = "Papirus-Dark";
           };
         };
       }
