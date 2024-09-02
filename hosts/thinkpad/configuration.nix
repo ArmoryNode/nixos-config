@@ -63,6 +63,9 @@ in
     enable = true;
   };
 
+  # Enable power management
+  powerManagement.enable = true;
+
   # Set up Nu shell
   programs.bash = {
     interactiveShellInit = ''

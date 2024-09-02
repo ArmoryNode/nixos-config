@@ -18,7 +18,7 @@
   users.users.armorynode.packages = (with pkgs; [
     gnome-connections
     gnome-tweaks
-    gnome.gnome-software
+    gnome-software
     smile
   ]) ++ (with pkgs.gnomeExtensions; [
     blur-my-shell
