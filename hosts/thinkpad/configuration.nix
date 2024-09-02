@@ -3,7 +3,6 @@ let
   hardwareConfig = ../../hardware-configuration.nix;
   bootloader = ../../modules/bootloaders/grub2.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
-  dotnet = ../../modules/development/dotnet.nix;
   podman = ../../modules/virtualization/podman.nix;
   vmware = ../../modules/virtualization/vmware.nix;
   _1password = ../../modules/security/1password.nix;
@@ -13,7 +12,6 @@ in
     hardwareConfig
     bootloader
     desktopEnv
-    dotnet
     podman
     vmware
     _1password
