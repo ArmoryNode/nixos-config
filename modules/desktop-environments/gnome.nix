@@ -1,4 +1,9 @@
 { config, pkgs, lib, inputs, ... }:
+let
+  whiteSurCustomTheme = pkgs.whitesur-gtk-theme.override {
+    iconVariant = "simple";
+  };
+in
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -20,6 +25,7 @@
     gnome-tweaks
     gnome-software
     smile
+    whiteSurCustomTheme # Use custom theme created above
   ]) ++ (with pkgs.gnomeExtensions; [
     blur-my-shell
     just-perfection
@@ -70,7 +76,7 @@
             ];
 
             favorite-apps = [
-              "org.gnome.Nautilus.desktop" "firefox.desktop" "com.raggesilver.BlackBox.desktop" "code.desktop" "rider.desktop"
+              "org.gnome.Nautilus.desktop" "firefox.desktop" "com.raggesilver.BlackBox.desktop" "code.desktop"
             ];
           };
 
@@ -79,12 +85,31 @@
             locations = lib.gvariant.mkEmptyArray (lib.gvariant.type.string);
           };
 
+          "org/gnome/shell/extensions/just-perfection" = {
+            animation = lib.gvariant.mkInt32 1;
+            weather = false;
+          };
+
           "org/gnome/shell/keybindings" = {
             toggle-message-tray = [ "<Shift><Super>v" ];
           };
 
+          "org/gnome/shell/extensions/user-theme" = {
+            name = "WhiteSur-dark";
+          };
+
+          "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+            blur = true;
+            override-background = true;
+            pipeline = "pipeline_default_rounded";
+            sigma = lib.gvariant.mkInt32 30;
+            static-blur = true;
+            style-dash-to-dock = lib.gvariant.mkInt32 0;
+          };
+
           "org/gnome/shell/extensions/dash-to-dock" = {
-            apply-custom-theme = true;
+            apply-custom-theme = false;
+            running-indicator-style = "DOTS";
             show-mounts = false;
             show-show-apps-button = false;
             show-trash = false;
