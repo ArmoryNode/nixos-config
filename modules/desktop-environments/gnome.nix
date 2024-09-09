@@ -95,7 +95,7 @@ in
           };
 
           "org/gnome/shell/extensions/user-theme" = {
-            name = "WhiteSur-dark";
+            name = "WhiteSur-dark-solid";
           };
 
           "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
