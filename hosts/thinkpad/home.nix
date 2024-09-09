@@ -44,7 +44,7 @@
     papirus-icon-theme
 
     # Development
-    jetbrains.rider
+    jetbrains-toolbox
     blackbox-terminal
     ungoogled-chromium
     git
