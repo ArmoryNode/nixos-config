@@ -1,9 +1,4 @@
 { config, pkgs, lib, inputs, ... }:
-let
-  whiteSurCustomTheme = pkgs.whitesur-gtk-theme.override {
-    iconVariant = "simple";
-  };
-in
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -25,7 +20,6 @@ in
     gnome-tweaks
     gnome-software
     smile
-    whiteSurCustomTheme # Use custom theme created above
   ]) ++ (with pkgs.gnomeExtensions; [
     blur-my-shell
     just-perfection
@@ -92,10 +86,6 @@ in
 
           "org/gnome/shell/keybindings" = {
             toggle-message-tray = [ "<Shift><Super>v" ];
-          };
-
-          "org/gnome/shell/extensions/user-theme" = {
-            name = "WhiteSur-dark-solid";
           };
 
           "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {

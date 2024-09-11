@@ -17,6 +17,7 @@
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix
+    ../../home/catppuccin.nix
   ];
 
   # Flatpaks

@@ -7,6 +7,7 @@
     nix-software-center.url = "github:snowfallorg/nix-software-center";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
+    catppuccin.url = "github:catppuccin/nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
