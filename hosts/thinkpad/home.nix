@@ -1,4 +1,11 @@
 { inputs, config, pkgs, lib, ... }:
+let
+  colloid-gtk-custom = pkgs.colloid-gtk-theme.overrideAttrs {
+    themeVariants = [ "grey" ];
+    colorVariants = [ "dark" ];
+    tweaks = [ "rimless" ];
+  };
+in
 {
   # Configure home manager
   home.username = "armorynode";
@@ -17,7 +24,6 @@
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix
-    ../../home/catppuccin.nix
   ];
 
   # Flatpaks
@@ -64,5 +70,8 @@
     wine
     winetricks
     protontricks
+
+    # GNOME theme
+    colloid-gtk-custom
   ]);
 }
