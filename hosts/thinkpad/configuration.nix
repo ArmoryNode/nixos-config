@@ -26,6 +26,15 @@ in
     allowedUDPPorts = [ 1337 ];
   };
 
+  # Configure swap space
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # 16GB
+  }];
+
+  # Fix for hibernate
+  security.protectKernelImage = false;
+
   users.users.armorynode = {
     isNormalUser = true;
     description = "ArmoryNode";
@@ -42,6 +51,7 @@ in
     distrobox
     ffmpeg_7-full
     nurl
+    wireguard-tools
   ];
 
   # Enable Flatpak
@@ -76,6 +86,13 @@ in
       fi
     '';
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-core-combined"
+    "dotnet-sdk-6.0.428"
+    "dotnet-sdk-wrapped-6.0.428"
+    "dotnet-sdk-7.0.410"
+  ];
 
   # Configure home manager
   home-manager.users.armorynode = import ./home.nix;

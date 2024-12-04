@@ -1,13 +1,10 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "CascadiaCode"
-        "JetBrainsMono"
-        "Inconsolata"
-      ];
-    })
+  home.packages = with pkgs.nerd-fonts; [
+    fira-code
+    caskaydia-cove
+    caskaydia-mono
+    jetbrains-mono
+    inconsolata
   ];
 }

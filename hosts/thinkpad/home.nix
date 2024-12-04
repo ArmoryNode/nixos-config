@@ -56,6 +56,7 @@ in
     ungoogled-chromium
     git
     nodejs
+    deno
     dart-sass
     git-credential-manager
 
@@ -73,5 +74,8 @@ in
 
     # GNOME theme
     colloid-gtk-custom
+
+    # Productivity
+    protonmail-desktop
   ]);
 }

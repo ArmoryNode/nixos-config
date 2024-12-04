@@ -47,7 +47,7 @@
 
   # Add udev packages
   services.udev.packages = with pkgs; [
-      gnome.gnome-settings-daemon
+      gnome-settings-daemon
   ];
 
   # Configure additional dconf settings
