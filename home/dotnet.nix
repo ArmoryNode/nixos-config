@@ -22,7 +22,7 @@ in
     fsautocomplete
     powershell
     (with dotnetCorePackages; combinePackages [
-      sdk_8_0_3xx
+      sdk_8_0
       sdk_9_0
     ])
   ];
