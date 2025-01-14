@@ -62,6 +62,7 @@ in
 
     # Utilities
     geekbench
+    nomachine-client
 
     # Work
     slack

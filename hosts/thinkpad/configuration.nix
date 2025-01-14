@@ -87,6 +87,7 @@ in
     '';
   };
 
+  # Temporary workaround for dotnet
   nixpkgs.config.permittedInsecurePackages = [
     "dotnet-core-combined"
     "dotnet-sdk-6.0.428"
