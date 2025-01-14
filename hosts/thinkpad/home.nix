@@ -24,6 +24,7 @@ in
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix
+    ../../home/elm.nix
   ];
 
   # Flatpaks

@@ -15,6 +15,7 @@
       mkhl.direnv
       thenuprojectcontributors.vscode-nushell-lang
       tamasfe.even-better-toml
+      elmtooling.elm-ls-vscode
     ];
 
     userSettings = {
