@@ -16,6 +16,7 @@
       thenuprojectcontributors.vscode-nushell-lang
       tamasfe.even-better-toml
       elmtooling.elm-ls-vscode
+      denoland.vscode-deno
     ];
 
     userSettings = {
