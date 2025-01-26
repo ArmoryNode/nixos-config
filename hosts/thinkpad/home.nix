@@ -25,6 +25,7 @@ in
     ../../home/bat.nix
     ../../home/dotnet.nix
     ../../home/elm.nix
+    ../../home/webdev.nix
   ];
 
   # Flatpaks
@@ -56,9 +57,6 @@ in
     blackbox-terminal
     ungoogled-chromium
     git
-    nodejs
-    deno
-    dart-sass
     git-credential-manager
 
     # Utilities
