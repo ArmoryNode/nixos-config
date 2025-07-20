@@ -26,6 +26,7 @@ in
     ../../home/dotnet.nix
     ../../home/elm.nix
     ../../home/webdev.nix
+    ../../home/rider.nix
   ];
 
   # Flatpaks
@@ -53,7 +54,6 @@ in
     papirus-icon-theme
 
     # Development
-    jetbrains-toolbox
     blackbox-terminal
     ungoogled-chromium
     git
@@ -77,5 +77,6 @@ in
 
     # Productivity
     protonmail-desktop
+    obsidian
   ]);
 }

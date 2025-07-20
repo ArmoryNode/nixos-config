@@ -4,7 +4,7 @@ let
   bootloader = ../../modules/bootloaders/grub2.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
-  vmware = ../../modules/virtualization/vmware.nix;
+  wireguard = ../../modules/networking/wireguard.nix;
   _1password = ../../modules/security/1password.nix;
 in
 {
@@ -13,7 +13,7 @@ in
     bootloader
     desktopEnv
     podman
-    vmware
+    wireguard
     _1password
   ];
 
@@ -23,7 +23,8 @@ in
 
   # Configure firewall
   networking.firewall = {
-    allowedUDPPorts = [ 1337 ];
+    enable = true;
+    allowedTCPPorts = [ 22 ];
   };
 
   # Configure swap space
@@ -51,7 +52,6 @@ in
     distrobox
     ffmpeg_7-full
     nurl
-    wireguard-tools
   ];
 
   # Enable Flatpak
@@ -72,6 +72,9 @@ in
   programs.direnv = {
     enable = true;
   };
+
+  # Configure dynamic linking
+  programs.nix-ld.enable = true;
 
   # Enable power management
   powerManagement.enable = true;

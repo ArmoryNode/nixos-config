@@ -3,7 +3,8 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions; [
+    
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       github.copilot 
       ionide.ionide-fsharp
       visualstudioexptteam.vscodeintellicode
@@ -19,7 +20,7 @@
       denoland.vscode-deno
     ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       "terminal.integrated.fontFamily" = "'JetBrainsMono NF'";
       "editor.fontLigatures" = true;
       "editor.fontFamily" = "'JetBrainsMono NF'";
