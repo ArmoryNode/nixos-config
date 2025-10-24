@@ -3,9 +3,7 @@
   # Configure git
   programs.git = {
     enable = true;
-    userName = "armorynode";
-    userEmail = "22787155+ArmoryNode@users.noreply.github.com";
-    extraConfig = {
+    settings = {
       user.name = "armorynode";
       user.email = "22787155+ArmoryNode@users.noreply.github.com";
 
