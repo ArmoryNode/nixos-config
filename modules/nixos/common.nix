@@ -6,7 +6,7 @@
   # Timezone
   time.timeZone = "America/Los_Angeles";
 
-  # Select internationalisation properties.
+  # Select internationalization properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Setup locale settings
@@ -45,5 +45,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  stdenv.hostPlatform.system.stateVersion = "23.11"; # Did you read the comment?
 }

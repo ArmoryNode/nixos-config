@@ -27,12 +27,17 @@ in
     allowedTCPPorts = [ 22 ];
   };
 
-  # Configure swap space
+  # Configure swap space - using dedicated partition for hibernation
   swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024; # 16GB
+    device = "/dev/disk/by-uuid/05e05e4e-77dc-4994-854e-a3ee6a53c7e5";
   }];
 
+  # Hibernation configuration
+  boot.resumeDevice = "/dev/disk/by-uuid/05e05e4e-77dc-4994-854e-a3ee6a53c7e5";
+  boot.kernelParams = [
+    "resume=UUID=05e05e4e-77dc-4994-854e-a3ee6a53c7e5"
+  ];
+  
   # Fix for hibernate
   security.protectKernelImage = false;
 
@@ -78,6 +83,18 @@ in
 
   # Enable power management
   powerManagement.enable = true;
+  
+  # Enable hibernation support
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=180
+    SuspendState=mem
+    HibernateState=disk
+    HybridSleepState=disk
+    HybridSleepMode=suspend platform shutdown
+  '';
+  
+  # Ensure systemd hibernation service is available
+  systemd.targets.hibernate.enable = true;
 
   # Set up Nu shell
   programs.bash = {
