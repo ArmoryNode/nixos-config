@@ -78,5 +78,8 @@ in
     # Productivity
     protonmail-desktop
     obsidian
+    
+    # Misc
+    mediawriter
   ]);
 }
