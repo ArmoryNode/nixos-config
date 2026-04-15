@@ -1,8 +1,10 @@
-{ config, pkgs, lib, ... }:
-let
+{ config, pkgs, lib, ... }: let
   ohMyPoshConfigPath = "./oh-my-posh/";
-in 
-{
+in  {
+  home.packages = with pkgs; [
+    zoxide
+  ];
+
   # Configure nushell
   programs.nushell = {
     enable = true;

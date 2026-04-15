@@ -1,5 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
-{
+{ config, pkgs, lib, inputs, ... }: {
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ../../home/common.nix

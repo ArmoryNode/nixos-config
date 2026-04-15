@@ -1,5 +1,4 @@
-{ pkgs, config, lib, ... }:
-let
+{ pkgs, config, lib, ... }: let
   artifacts-credprovider = pkgs.stdenv.mkDerivation {
     name = "artifacts-credprovider";
     src = pkgs.fetchurl {
@@ -13,8 +12,7 @@ let
       pkgs.gzip
     ];
   };
-in
-{
+in {
   # Install necessary packages
   home.packages = with pkgs; 
   [

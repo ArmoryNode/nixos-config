@@ -1,6 +1,7 @@
-{ config, pkgs, lib, inputs, ... }:
-let
+{ config, pkgs, lib, inputs, ... }: let
   hardwareConfig = ../../hardware-configuration.nix;
+  common = ../../modules/nixos/common.nix;
+  desktopCommon = ../../modules/nixos/desktop.nix;
   bootloader = ../../modules/bootloaders/grub2.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
@@ -10,6 +11,8 @@ in
 {
   imports = [
     hardwareConfig
+    common
+    desktopCommon
     bootloader
     desktopEnv
     podman

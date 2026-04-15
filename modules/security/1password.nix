@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Allow 1Password to be unlocked by system authentication
   programs._1password.enable = true;
   programs._1password-gui = {
@@ -12,6 +11,7 @@
     "1password/custom_allowed_browsers" = {
       text = ''
         firefox
+        zen
       '';
       mode = "0755";
     };

@@ -12,37 +12,36 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
-    lib = nixpkgs.lib;
-
-    mkSystem = pkgs: system: hostname:
-        pkgs.lib.nixosSystem {
-          system = system;
-          modules = [
-            ./hosts/${hostname}/configuration.nix
-            ./modules/nixos/common.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = true;
-                extraSpecialArgs = { inherit inputs; };
-              };
-            }
-          ];
-          specialArgs = { inherit inputs; };
+  outputs = { nixpkgs, home-manager, ... }@inputs: let
+    # Auto discover hosts
+    hostNames = builtins.filter
+      (name: builtins.pathExists (./hosts + "/${name}/default.nix"))
+      (builtins.attrNames (builtins.readDir ./hosts));
+  in {
+    # Build NixOS configurations for each host
+    nixosConfigurations = builtins.listToAttrs (map (hostname: {
+        name = hostname;
+        value = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs; };
+            modules = [
+                ./hosts/${hostname}/default.nix
+                home-manager.nixosModules.home-manager {
+                    home-manager = {
+                        useUserPackages = true;
+                        useGlobalPkgs = true;
+                        extraSpecialArgs = { inherit inputs; };
+                    };
+                }
+            ];
         };
-  in
-  {
-    nixosConfigurations = {
-      thinkpad = mkSystem inputs.nixpkgs system "thinkpad";
-      desktop = mkSystem inputs.nixpkgs system "desktop";
-      wsl = mkSystem inputs.nixpkgs system "wsl";
-    };
+    }) hostNames);
   };
 }

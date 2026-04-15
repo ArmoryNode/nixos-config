@@ -1,5 +1,4 @@
-{ config, pkgs, inputs, ... }:
-{
+{ config, pkgs, inputs, ... }: {
   # Enable NVIDIA support
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {

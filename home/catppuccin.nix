@@ -1,9 +1,7 @@
-{ inputs, pkgs, lib, ... }:
-let
+{ inputs, pkgs, lib, ... }: let
   catppuccinFlavor = "macchiato";
   catppuccinAccent = "blue";
-in
-{
+in {
   imports = [ 
     inputs.catppuccin.homeManagerModules.catppuccin
   ];

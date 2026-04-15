@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-let
+{ pkgs, ... }: let
   fastFetchConfigPath = "./fastfetch/";
-in 
-{
+in {
   programs.fastfetch = {
     enable = true;
     settings = builtins.fromJSON (

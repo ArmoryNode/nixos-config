@@ -1,6 +1,7 @@
-{ config, pkgs, lib, inputs, ... }:
-let
+{ config, pkgs, lib, inputs, ... }: let
   hardwareConfig = ../../hardware-configuration.nix;
+  common = ../../modules/nixos/common.nix;
+  desktopCommon = ../../modules/nixos/desktop.nix;
   nvidiaStable = ../../modules/nvidia/stable.nix;
   bootloader = ../../modules/bootloaders/grub2.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
@@ -11,6 +12,8 @@ in
 {
   imports = [
     hardwareConfig
+    common
+    desktopCommon
     nvidiaStable
     bootloader
     desktopEnv

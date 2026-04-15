@@ -1,5 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
-let
+{ inputs, config, pkgs, lib, ... }: let
   colloid-gtk-custom = pkgs.colloid-gtk-theme.overrideAttrs {
     themeVariants = [ "grey" ];
     colorVariants = [ "dark" ];
