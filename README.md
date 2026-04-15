@@ -8,5 +8,4 @@ I don't recommend rebuilding using my exact configuration due to the fact that i
 
 1. Clone the repository
 2. Run ```cd nixos-config```
-4. Install into `/etc/nixos` using `sudo ./install.sh`
-5. [Rebuild your NixOS using the desired flake](https://nixos.wiki/wiki/flakes#Using_nix_flakes_with_NixOS)
+4. [Rebuild your NixOS image using the desired host](https://nixos.wiki/wiki/flakes#Using_nix_flakes_with_NixOS)

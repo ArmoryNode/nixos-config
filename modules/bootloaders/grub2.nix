@@ -1,8 +1,4 @@
 { config, pkgs, inputs, ... }: {
-  imports = [ 
-    ../../hardware-configuration.nix
-  ];
-
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {

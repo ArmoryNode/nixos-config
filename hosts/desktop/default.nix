@@ -1,5 +1,5 @@
 { config, pkgs, lib, inputs, ... }: let
-  hardwareConfig = ../../hardware-configuration.nix;
+  hardwareConfig = ./hardware-configuration.nix;
   common = ../../modules/nixos/common.nix;
   desktopCommon = ../../modules/nixos/desktop.nix;
   nvidiaStable = ../../modules/nvidia/stable.nix;
@@ -10,8 +10,7 @@
   _1password = ../../modules/security/1password.nix;
 in
 {
-  imports = [
-    hardwareConfig
+  imports = lib.optional (builtins.pathExists hardwareConfig) hardwareConfig ++ [
     common
     desktopCommon
     nvidiaStable
@@ -35,7 +34,7 @@ in
 
   # Add system packages  
   environment.systemPackages = with pkgs; [
-    inputs.nix-software-center.packages.${system}.nix-software-center
+    inputs.nix-software-center.packages.${pkgs.system}.nix-software-center
 
     libgcc
     go
