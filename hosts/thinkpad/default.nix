@@ -5,6 +5,7 @@
   bootloader = ../../modules/bootloaders/grub2.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
+  tailscale = ../../modules/networking/tailscale.nix;
   wireguard = ../../modules/networking/wireguard.nix;
   _1password = ../../modules/security/1password.nix;
 in
@@ -15,6 +16,7 @@ in
     bootloader
     desktopEnv
     podman
+    tailscale
     wireguard
     _1password
   ];

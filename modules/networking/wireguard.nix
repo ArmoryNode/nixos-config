@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: {
   # Enable Wireguard
   networking.wireguard.enable = true;
-  networking.firewall.checkReversePath = false;
+  networking.firewall.checkReversePath = "loose";
 
   networking.firewall = {
     allowedUDPPorts = [ 51820 ];
