@@ -27,6 +27,7 @@ in  {
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+      shellWrapperName = "y";
     };
 
     oh-my-posh = {

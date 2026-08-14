@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
@@ -7,5 +7,6 @@
     policies = {
       DisablePocket = true;
     };
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 }
