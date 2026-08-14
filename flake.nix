@@ -24,22 +24,35 @@
     hostNames = builtins.filter
       (name: builtins.pathExists (./hosts + "/${name}/default.nix"))
       (builtins.attrNames (builtins.readDir ./hosts));
+
+    hostSystems = {
+      desktop = "x86_64-linux";
+      thinkpad = "x86_64-linux";
+      wsl = "x86_64-linux";
+    };
+
+    systemFor = hostname:
+      if builtins.hasAttr hostname hostSystems
+      then builtins.getAttr hostname hostSystems
+      else throw "Missing system mapping for host '${hostname}' in `hostSystems`";
   in {
     # Build NixOS configurations for each host
     nixosConfigurations = builtins.listToAttrs (map (hostname: {
         name = hostname;
         value = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
             specialArgs = { inherit inputs; };
             modules = [
-                ./hosts/${hostname}/default.nix
-                home-manager.nixosModules.home-manager {
-                    home-manager = {
-                        useUserPackages = true;
-                        useGlobalPkgs = true;
-                        extraSpecialArgs = { inherit inputs; };
-                    };
-                }
+              ({ ... }: {
+                nixpkgs.hostPlatform = systemFor hostname;
+              })
+              ./hosts/${hostname}/default.nix
+              home-manager.nixosModules.home-manager {
+                home-manager = {
+                   useUserPackages = true;
+                   useGlobalPkgs = true;
+                   extraSpecialArgs = { inherit inputs; };
+                };
+              }
             ];
         };
     }) hostNames);
