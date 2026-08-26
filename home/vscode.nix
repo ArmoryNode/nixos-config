@@ -10,9 +10,7 @@
       ms-dotnettools.csharp
       ms-dotnettools.csdevkit
       jnoortheen.nix-ide
-      arrterian.nix-env-selector
       brettm12345.nixfmt-vscode
-      mkhl.direnv
       thenuprojectcontributors.vscode-nushell-lang
       tamasfe.even-better-toml
       elmtooling.elm-ls-vscode
