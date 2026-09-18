@@ -11,6 +11,7 @@
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix
+    ../../home/rider.nix
   ];
 
   # Configure home manager
@@ -25,7 +26,6 @@
     "com.spotify.Client"
     "com.discordapp.Discord"
     "com.valvesoftware.Steam"
-    "page.kramo.Cartridges"
     "eu.betterbird.Betterbird"
     "org.libreoffice.LibreOffice"
     "com.github.hugolabe.Wike"
@@ -43,10 +43,8 @@
     papirus-icon-theme
 
     # Development
-    jetbrains-toolbox
     blackbox-terminal
     ungoogled-chromium
-    git
     nodejs
     dart-sass
     csharprepl
@@ -69,16 +67,6 @@
     wine
     winetricks
     protontricks
-
-    # Nerdfonts
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "CascadiaCode"
-        "JetBrainsMono"
-        "Inconsolata"
-      ];
-    })
   ]);
 
   # Configure git
