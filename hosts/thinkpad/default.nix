@@ -49,9 +49,6 @@ in
     nurl
   ];
 
-  # Enable Flatpak
-  services.flatpak.enable = true;
-
   # Start the Fingerprint driver at boot
   systemd.services.fprintd = {
     wantedBy = [ "multi-user.target" ];

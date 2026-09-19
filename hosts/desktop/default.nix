@@ -3,7 +3,7 @@
   common = ../../modules/nixos/common.nix;
   desktopCommon = ../../modules/nixos/desktop.nix;
   nvidiaStable = ../../modules/nvidia/stable.nix;
-  bootloader = ../../modules/bootloaders/grub2.nix;
+  bootloader = ../../modules/bootloaders/lanzaboote.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
   vmware = ../../modules/virtualization/vmware.nix;

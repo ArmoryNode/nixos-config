@@ -12,6 +12,7 @@
     ../../home/bat.nix
     ../../home/dotnet.nix
     ../../home/rider.nix
+    ../../home/ollama.nix
   ];
 
   # Configure home manager
@@ -22,23 +23,22 @@
   # Flatpaks
   services.flatpak.enable = true;
   services.flatpak.uninstallUnmanaged = true;
+  services.flatpak.update.onActivation = true;
   services.flatpak.packages = [
-    "com.spotify.Client"
-    "com.discordapp.Discord"
-    "com.valvesoftware.Steam"
-    "eu.betterbird.Betterbird"
-    "org.libreoffice.LibreOffice"
-    "com.github.hugolabe.Wike"
-    "com.github.tchx84.Flatseal"
-    "io.podman_desktop.PodmanDesktop"
+    { appId = "com.spotify.Client"; origin = "flathub"; }
+    { appId = "com.mastermindzh.tidal-hifi"; origin = "flathub"; }
+    { appId = "com.discordapp.Discord"; origin = "flathub"; }
+    { appId = "com.valvesoftware.Steam"; origin = "flathub"; }
+    { appId = "eu.betterbird.Betterbird"; origin = "flathub"; }
+    { appId = "org.libreoffice.LibreOffice"; origin = "flathub"; }
+    { appId = "com.github.hugolabe.Wike"; origin = "flathub"; }
+    { appId = "com.github.tchx84.Flatseal"; origin = "flathub"; }
+    { appId = "io.podman_desktop.PodmanDesktop"; origin = "flathub"; }
   ];
 
   # Packages
   nixpkgs.config.allowUnfree = true;
   home.packages = (with pkgs; [
-    # Flatpak
-    flatpak
-
     # Customization
     papirus-icon-theme
 
@@ -58,6 +58,7 @@
     bat
     fastfetch
     geekbench
+    sbctl
 
     # Work
     slack
@@ -100,17 +101,7 @@
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
   };
-  
-  # Configure VSCode
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ionide.ionide-fsharp
-      visualstudioexptteam.vscodeintellicode
-      ms-dotnettools.csharp
-      ms-dotnettools.csdevkit
-    ];
-  };
+
 
   # Configure dotfiles
   home.file = {};

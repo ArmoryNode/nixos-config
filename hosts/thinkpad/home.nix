@@ -31,24 +31,21 @@ in
   # Flatpaks
   services.flatpak.enable = true;
   services.flatpak.uninstallUnmanaged = true;
+  services.flatpak.update.onActivation = true;
   services.flatpak.packages = [
-    "com.spotify.Client"
-    "com.mastermindzh.tidal-hifi"
-    "com.discordapp.Discord"
-    "com.valvesoftware.Steam"
-    "page.kramo.Cartridges"
-    "eu.betterbird.Betterbird"
-    "org.libreoffice.LibreOffice"
-    "com.github.hugolabe.Wike"
-    "com.github.tchx84.Flatseal"
-    "io.podman_desktop.PodmanDesktop"
+    { appId = "com.spotify.Client"; origin = "flathub"; }
+    { appId = "com.mastermindzh.tidal-hifi"; origin = "flathub"; }
+    { appId = "com.discordapp.Discord"; origin = "flathub"; }
+    { appId = "com.valvesoftware.Steam"; origin = "flathub"; }
+    { appId = "eu.betterbird.Betterbird"; origin = "flathub"; }
+    { appId = "org.libreoffice.LibreOffice"; origin = "flathub"; }
+    { appId = "com.github.hugolabe.Wike"; origin = "flathub"; }
+    { appId = "com.github.tchx84.Flatseal"; origin = "flathub"; }
+    { appId = "io.podman_desktop.PodmanDesktop"; origin = "flathub"; }
   ];
 
   # Packages
   home.packages = (with pkgs; [
-    # Flatpak
-    flatpak
-
     # Customization
     papirus-icon-theme
 

@@ -18,7 +18,7 @@
     ];
 
     profiles.default.userSettings = {
-      "terminal.integrated.fontFamily" = "'JetBrainsMono NF'";
+      "terminal.integrated.fontFamily" = "'JetBrainsMono NF', 'JetBrains Mono Nerd Font";
       "editor.fontLigatures" = true;
       "editor.fontFamily" = "'JetBrainsMono NF'";
       "window.menuBarVisibility" = "toggle";

@@ -17,9 +17,14 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: let
+  outputs = { nixpkgs, home-manager, lanzaboote, ... }@inputs: let
     # Auto discover hosts
     hostNames = builtins.filter
       (name: builtins.pathExists (./hosts + "/${name}/default.nix"))
@@ -45,6 +50,7 @@
               ({ ... }: {
                 nixpkgs.hostPlatform = systemFor hostname;
               })
+              lanzaboote.nixosModules.lanzaboote
               ./hosts/${hostname}/default.nix
               home-manager.nixosModules.home-manager {
                 home-manager = {
