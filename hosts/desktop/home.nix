@@ -41,7 +41,6 @@ in {
   ];
 
   # Packages
-  nixpkgs.config.allowUnfree = true;
   home.packages = (with pkgs; [
     # Customization
     conflux-icon-theme
@@ -74,24 +73,10 @@ in {
     protontricks
   ]);
 
-  # Configure git
-  programs.git = {
-    enable = true;
-    userName = "armorynode";
-    userEmail = "22787155+ArmoryNode@users.noreply.github.com";
-    extraConfig = {
-      user.name = "armorynode";
-      user.email = "22787155+ArmoryNode@users.noreply.github.com";
-
-      credential.helper = "${
-        pkgs.git.override { withLibsecret = true; }
-      }/bin/git-credential-libsecret";
-    };
-  };
-
   # Configure zshell
   programs.zsh = {
     enable = true;
+    dotDir = config.home.homeDirectory;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
