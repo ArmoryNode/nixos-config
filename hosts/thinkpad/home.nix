@@ -4,6 +4,9 @@
     colorVariants = [ "dark" ];
     tweaks = [ "rimless" ];
   };
+  conflux-icon-theme = pkgs.callPackage ../../modules/custom/themes/conflux-icon-theme.nix {
+    src = inputs.conflux-icon-theme;
+  };
 in
 {
   # Configure home manager
@@ -47,7 +50,7 @@ in
   # Packages
   home.packages = (with pkgs; [
     # Customization
-    papirus-icon-theme
+    conflux-icon-theme
 
     # Development
     blackbox-terminal

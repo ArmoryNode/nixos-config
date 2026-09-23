@@ -5,6 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     nix-software-center.url = "github:snowfallorg/nix-software-center";
+    conflux-icon-theme = {
+      url = "github:MoshiurRahmanAdib/Conflux-Icon-Theme";
+      flake = false;
+    };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
 

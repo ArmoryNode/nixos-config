@@ -115,7 +115,7 @@
             enable-animations = true;
             enable-hot-corners = false;
             gtk-enable-primary-paste = false;
-            icon-theme = "Papirus-Dark";
+            icon-theme = "Conflux";
           };
         };
       }

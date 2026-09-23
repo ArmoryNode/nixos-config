@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "conflux-icon-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789245446,
+        "narHash": "sha256-jmm+k7S1w02iEbUhviyKViBxbdJFnusvSKVA6hA1l0A=",
+        "owner": "MoshiurRahmanAdib",
+        "repo": "Conflux-Icon-Theme",
+        "rev": "d64da34e6e81dd9a08ca068d55038b0578b1ba98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MoshiurRahmanAdib",
+        "repo": "Conflux-Icon-Theme",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1781825982,
@@ -299,6 +315,7 @@
     },
     "root": {
       "inputs": {
+        "conflux-icon-theme": "conflux-icon-theme",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nix-flatpak": "nix-flatpak",

@@ -1,4 +1,8 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: let
+  conflux-icon-theme = pkgs.callPackage ../../modules/custom/themes/conflux-icon-theme.nix {
+    src = inputs.conflux-icon-theme;
+  };
+in {
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ../../home/common.nix
@@ -40,7 +44,7 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = (with pkgs; [
     # Customization
-    papirus-icon-theme
+    conflux-icon-theme
 
     # Development
     blackbox-terminal
