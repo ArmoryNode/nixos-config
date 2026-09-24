@@ -1,7 +1,4 @@
 { config, pkgs, lib, inputs, ... }: {
-  imports = [
-    inputs.nix-flatpak.nixosModules.nix-flatpak
-  ];
 
   # Enable GDM and GNOME
   services.displayManager.gdm.enable = true;
@@ -12,6 +9,7 @@
 
   # Install gnome packages
   users.users.armorynode.packages = (with pkgs; [
+    gnome-extension-manager
     gnome-connections
     gnome-tweaks
     gnome-software
@@ -22,16 +20,9 @@
     reboottouefi
     dash-to-dock
     appindicator
-    wireguard-vpn-extension
     clipboard-history
     smile-complementary-extension
   ]);
-
-  # Install gnome-specific flatpaks
-  services.flatpak.uninstallUnmanaged = true;
-  services.flatpak.packages = [
-    "com.mattjakeman.ExtensionManager"
-  ];
 
   # Exclude gnome packages
   environment.gnome.excludePackages = with pkgs; [
@@ -60,7 +51,6 @@
               appindicator.extensionUuid
               reboottouefi.extensionUuid
               just-perfection.extensionUuid
-              wireguard-vpn-extension.extensionUuid
               clipboard-history.extensionUuid
               smile-complementary-extension.extensionUuid
             ];

@@ -15,7 +15,6 @@ in
   home.stateVersion = "23.11";
 
   imports = [
-    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ../../home/common.nix
     ../../home/nushell.nix
     ../../home/git.nix
@@ -29,22 +28,6 @@ in
     ../../home/elm.nix
     ../../home/webdev.nix
     ../../home/rider.nix
-  ];
-
-  # Flatpaks
-  services.flatpak.enable = true;
-  services.flatpak.uninstallUnmanaged = true;
-  services.flatpak.update.onActivation = true;
-  services.flatpak.packages = [
-    { appId = "com.spotify.Client"; origin = "flathub"; }
-    { appId = "com.mastermindzh.tidal-hifi"; origin = "flathub"; }
-    { appId = "com.discordapp.Discord"; origin = "flathub"; }
-    { appId = "com.valvesoftware.Steam"; origin = "flathub"; }
-    { appId = "eu.betterbird.Betterbird"; origin = "flathub"; }
-    { appId = "org.libreoffice.LibreOffice"; origin = "flathub"; }
-    { appId = "com.github.hugolabe.Wike"; origin = "flathub"; }
-    { appId = "com.github.tchx84.Flatseal"; origin = "flathub"; }
-    { appId = "io.podman_desktop.PodmanDesktop"; origin = "flathub"; }
   ];
 
   # Packages

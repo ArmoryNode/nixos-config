@@ -6,6 +6,8 @@
   bootloader = ../../modules/bootloaders/lanzaboote.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
+  flatpak = ../../modules/misc/flatpak.nix;
+  tailscale = ../../modules/networking/tailscale.nix;
   vmware = ../../modules/virtualization/vmware.nix;
   _1password = ../../modules/security/1password.nix;
 in
@@ -17,6 +19,8 @@ in
     bootloader
     desktopEnv
     podman
+    flatpak
+    tailscale
     vmware
     _1password
   ];
