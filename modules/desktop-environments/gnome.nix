@@ -22,6 +22,7 @@
     appindicator
     clipboard-history
     smile-complementary-extension
+    tiling-shell
   ]);
 
   # Exclude gnome packages
