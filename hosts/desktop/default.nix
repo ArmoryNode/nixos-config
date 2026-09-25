@@ -2,7 +2,7 @@
   hardwareConfig = ./hardware-configuration.nix;
   common = ../../modules/nixos/common.nix;
   desktopCommon = ../../modules/nixos/desktop.nix;
-  nvidiaStable = ../../modules/nvidia/stable.nix;
+  nvidiaBeta = ../../modules/nvidia/beta.nix;
   bootloader = ../../modules/bootloaders/lanzaboote.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
@@ -15,7 +15,7 @@ in
   imports = lib.optional (builtins.pathExists hardwareConfig) hardwareConfig ++ [
     common
     desktopCommon
-    nvidiaStable
+    nvidiaBeta
     bootloader
     desktopEnv
     podman
