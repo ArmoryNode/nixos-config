@@ -1,7 +1,5 @@
-{ inputs, pkgs, ... }: let
-	zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
-in {
+{ inputs, pkgs, ... }: {
 	home.packages = [
-		zen-browser
+		inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 	];
 }

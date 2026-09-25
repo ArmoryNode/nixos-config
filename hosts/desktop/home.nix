@@ -16,6 +16,7 @@ in {
     ../../home/dotnet.nix
     ../../home/rider.nix
     ../../home/ollama.nix
+    ../../home/zenbrowser.nix
   ];
 
   # Configure home manager
