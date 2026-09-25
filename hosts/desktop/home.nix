@@ -49,6 +49,11 @@ in {
 
     # Work
     slack
+    zoom-us
+
+    # Productivity
+    protonmail-desktop
+    obsidian
 
     # Gaming
     bottles
