@@ -54,6 +54,7 @@
               just-perfection.extensionUuid
               clipboard-history.extensionUuid
               smile-complementary-extension.extensionUuid
+              tiling-shell.extensionUuid
             ];
 
             favorite-apps = [
@@ -94,6 +95,10 @@
 
           "org/gnome/shell/extensions/clipboard-history" = {
             toggle-menu = [ "<Super>v" ];
+          };
+
+          "org/gnome/shell/extensions/tilingshell" = {
+            layouts-json = builtins.readFile ./gnome-configs/tilingshell-layouts.json;
           };
 
           "org/gnome/mutter" = {
