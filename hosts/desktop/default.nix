@@ -29,6 +29,9 @@ in
   networking.hostName = "ArmoryNix";
   networking.networkmanager.enable = true;
 
+  # Prevent time issue when dual-booting with Windows
+  time.hardwareClockInLocalTime = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.armorynode = {
     isNormalUser = true;
