@@ -3,11 +3,11 @@
     "conflux-icon-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1790363555,
-        "narHash": "sha256-gIbdB5DsVBnFHDjyoWT/TvO+6zOGdOJ1Zw3r3eWvHuU=",
+        "lastModified": 1790506509,
+        "narHash": "sha256-WGbr6N20VwyabFu7HAoU+X4X9ijMQsKnn3blkUK0jJI=",
         "owner": "MoshiurRahmanAdib",
         "repo": "Conflux-Icon-Theme",
-        "rev": "4d48ba923e3896e3072a7f5f0eee157cbd121ca2",
+        "rev": "d14c94b6e005f0f710c38fc1b827bddfb0b646a7",
         "type": "github"
       },
       "original": {
@@ -261,11 +261,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1790185690,
-        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
+        "lastModified": 1790463110,
+        "narHash": "sha256-hKlVl12B1dF0Q5vd9dY3lIJM5mFGWYSlXwSLAqHZ1+s=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
+        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
         "type": "github"
       },
       "original": {
