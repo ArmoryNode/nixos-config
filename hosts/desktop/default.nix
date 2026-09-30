@@ -62,6 +62,14 @@ in
     '';
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      dart-sass
+      deno
+    ];
+  };
+
   # Configure home manager
   home-manager.users.armorynode = import ./home.nix;
 }

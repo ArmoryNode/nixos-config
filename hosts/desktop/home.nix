@@ -14,7 +14,6 @@ in {
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix
-    ../../home/rider.nix
     ../../home/ollama.nix
     ../../home/zenbrowser.nix
   ];
@@ -32,8 +31,6 @@ in {
     # Development
     blackbox-terminal
     ungoogled-chromium
-    nodejs
-    dart-sass
     csharprepl
     fsautocomplete
     git-credential-manager
@@ -46,6 +43,8 @@ in {
     fastfetch
     geekbench
     sbctl
+    flatpak-xdg-utils
+    vlc
 
     # Work
     slack

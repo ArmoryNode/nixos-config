@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # Node.js
-    nodejs_24
+    nodejs_26
 
     # Deno
     deno
