@@ -2,7 +2,8 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    
+    profiles.default.enableExtensionUpdateCheck = false;
+    profiles.default.enableUpdateCheck = false;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       github.copilot 
       ionide.ionide-fsharp
