@@ -44,7 +44,6 @@ in {
     geekbench
     sbctl
     flatpak-xdg-utils
-    vlc
 
     # Work
     slack

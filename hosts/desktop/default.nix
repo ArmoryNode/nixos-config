@@ -49,6 +49,8 @@ in
     distrobox
     ffmpeg_7-full
     nurl
+    libvlc
+    vlc
   ];
 
   # Set up Nu shell
