@@ -17,6 +17,7 @@ in {
     ../../home/ollama.nix
     ../../home/zenbrowser.nix
     ../../home/webdev.nix
+    ../../home/rider.nix
   ];
 
   # Configure home manager
