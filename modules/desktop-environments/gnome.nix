@@ -1,4 +1,27 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: let
+  simple-taskbar = pkgs.stdenvNoCC.mkDerivation {
+    pname = "simple-taskbar";
+    version = "66";
+    src = pkgs.fetchzip {
+      url = "https://github.com/Sultech/simple-taskbar/archive/refs/tags/66.tar.gz";
+      hash = "sha256-Rj7zI3xug6tzK+uB/RbsRTPmpkj5t44zJh+jxGw0HBM=";
+    };
+    nativeBuildInputs = [ pkgs.gnome-shell pkgs.glib pkgs.gettext pkgs.unzip ];
+    buildPhase = ''
+      runHook preBuild
+      sh ./package.sh
+      runHook postBuild
+    '';
+    installPhase = ''
+      runHook preInstall
+      mkdir -p "$out/share/gnome-shell/extensions/simple-taskbar@sultech"
+      unzip -q dist/simple-taskbar@sultech.shell-extension.zip -d "$out/share/gnome-shell/extensions/simple-taskbar@sultech"
+      glib-compile-schemas --strict "$out/share/gnome-shell/extensions/simple-taskbar@sultech/schemas"
+      runHook postInstall
+    '';
+    passthru.extensionUuid = "simple-taskbar@sultech";
+  };
+in {
 
   # Enable GDM and GNOME
   services.displayManager.gdm.enable = true;
@@ -18,12 +41,11 @@
     blur-my-shell
     just-perfection
     reboottouefi
-    dash-to-dock
     appindicator
     clipboard-history
     smile-complementary-extension
     tiling-shell
-  ]);
+  ]) ++ [ simple-taskbar ];
 
   # Exclude gnome packages
   environment.gnome.excludePackages = with pkgs; [
@@ -48,14 +70,13 @@
             disable-user-extensions = false;
             enabled-extensions = with pkgs.gnomeExtensions; [
               blur-my-shell.extensionUuid
-              dash-to-dock.extensionUuid
               appindicator.extensionUuid
               reboottouefi.extensionUuid
               just-perfection.extensionUuid
               clipboard-history.extensionUuid
               smile-complementary-extension.extensionUuid
               tiling-shell.extensionUuid
-            ];
+            ] ++ [ simple-taskbar.extensionUuid ];
 
             favorite-apps = [
               "org.gnome.Nautilus.desktop" "firefox.desktop" "com.raggesilver.BlackBox.desktop" "code.desktop"
@@ -76,21 +97,16 @@
             toggle-message-tray = [ "<Shift><Super>v" ];
           };
 
-          "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
-            blur = true;
-            override-background = true;
-            pipeline = "pipeline_default_rounded";
-            sigma = lib.gvariant.mkInt32 30;
-            static-blur = true;
-            style-dash-to-dock = lib.gvariant.mkInt32 0;
-          };
-
-          "org/gnome/shell/extensions/dash-to-dock" = {
-            apply-custom-theme = false;
-            running-indicator-style = "DOTS";
-            show-mounts = false;
-            show-show-apps-button = false;
-            show-trash = false;
+          "org/gnome/shell/extensions/simple-taskbar" = {
+            dock-mode = true;
+            hot-edge-overview-enabled = false;
+            taskbar-highlight-style = "classic";
+            animate-appicon-hover-animation-type = "magnify";
+            animate-appicon-hover-animation-zoom = lib.gvariant.mkArray [
+              (lib.gvariant.mkDictionaryEntry "simple" (lib.gvariant.mkDouble 1.0))
+              (lib.gvariant.mkDictionaryEntry "ripple" (lib.gvariant.mkDouble 1.25))
+              (lib.gvariant.mkDictionaryEntry "magnify" (lib.gvariant.mkDouble 1.5))
+            ];
           };
 
           "org/gnome/shell/extensions/clipboard-history" = {
@@ -98,7 +114,7 @@
           };
 
           "org/gnome/shell/extensions/tilingshell" = {
-            layouts-json = builtins.readFile ./gnome-configs/tilingshell-layouts.json;
+            layouts-json = builtins.readFile ./extension-config/tiling-shell/layouts.json;
           };
 
           "org/gnome/mutter" = {
