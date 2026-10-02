@@ -16,6 +16,7 @@ in {
     ../../home/dotnet.nix
     ../../home/ollama.nix
     ../../home/zenbrowser.nix
+    ../../home/webdev.nix
   ];
 
   # Configure home manager
@@ -48,6 +49,7 @@ in {
     # Work
     slack
     zoom-us
+    teams-for-linux
 
     # Productivity
     protonmail-desktop
