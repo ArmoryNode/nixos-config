@@ -1,27 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: let
-  simple-taskbar = pkgs.stdenvNoCC.mkDerivation {
-    pname = "simple-taskbar";
-    version = "66";
-    src = pkgs.fetchzip {
-      url = "https://github.com/Sultech/simple-taskbar/archive/refs/tags/66.tar.gz";
-      hash = "sha256-Rj7zI3xug6tzK+uB/RbsRTPmpkj5t44zJh+jxGw0HBM=";
-    };
-    nativeBuildInputs = [ pkgs.gnome-shell pkgs.glib pkgs.gettext pkgs.unzip ];
-    buildPhase = ''
-      runHook preBuild
-      sh ./package.sh
-      runHook postBuild
-    '';
-    installPhase = ''
-      runHook preInstall
-      mkdir -p "$out/share/gnome-shell/extensions/simple-taskbar@sultech"
-      unzip -q dist/simple-taskbar@sultech.shell-extension.zip -d "$out/share/gnome-shell/extensions/simple-taskbar@sultech"
-      glib-compile-schemas --strict "$out/share/gnome-shell/extensions/simple-taskbar@sultech/schemas"
-      runHook postInstall
-    '';
-    passthru.extensionUuid = "simple-taskbar@sultech";
-  };
-in {
+{ config, pkgs, lib, inputs, ... }: {
 
   # Enable GDM and GNOME
   services.displayManager.gdm.enable = true;
@@ -45,7 +22,8 @@ in {
     clipboard-history
     smile-complementary-extension
     tiling-shell
-  ]) ++ [ simple-taskbar ];
+    simple-taskbar
+  ]);
 
   # Exclude gnome packages
   environment.gnome.excludePackages = with pkgs; [
@@ -76,7 +54,8 @@ in {
               clipboard-history.extensionUuid
               smile-complementary-extension.extensionUuid
               tiling-shell.extensionUuid
-            ] ++ [ simple-taskbar.extensionUuid ];
+              simple-taskbar.extensionUuid
+            ];
 
             favorite-apps = [
               "org.gnome.Nautilus.desktop" "firefox.desktop" "com.raggesilver.BlackBox.desktop" "code.desktop"
