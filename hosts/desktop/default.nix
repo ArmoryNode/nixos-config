@@ -9,6 +9,7 @@
   flatpak = ../../modules/misc/flatpak.nix;
   tailscale = ../../modules/networking/tailscale.nix;
   vmware = ../../modules/virtualization/vmware.nix;
+  steam = ../../modules/gaming/steam.nix;
   _1password = ../../modules/security/1password.nix;
 in
 {
@@ -22,6 +23,7 @@ in
     flatpak
     tailscale
     vmware
+    steam
     _1password
   ];
 
