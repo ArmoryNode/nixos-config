@@ -61,6 +61,9 @@ in {
     wine
     winetricks
     protontricks
+
+    # Media
+    pocket-casts
   ]);
 
   # Configure zshell
