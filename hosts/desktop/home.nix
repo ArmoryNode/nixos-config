@@ -6,6 +6,7 @@ in {
   imports = [
     ../../home/common.nix
     ../../home/nushell.nix
+    ../../home/blackbox-terminal.nix
     ../../home/git.nix
     ../../home/nerdfonts.nix
     ../../home/vscode.nix
@@ -31,7 +32,6 @@ in {
     conflux-icon-theme
 
     # Development
-    blackbox-terminal
     ungoogled-chromium
     csharprepl
     fsautocomplete
