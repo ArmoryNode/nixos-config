@@ -13,16 +13,15 @@
     gnome-connections
     gnome-tweaks
     gnome-software
-    smile
   ]) ++ (with pkgs.gnomeExtensions; [
     blur-my-shell
     just-perfection
     reboottouefi
     appindicator
     clipboard-history
-    smile-complementary-extension
     tiling-shell
     simple-taskbar
+    emoji-copy
   ]);
 
   # Exclude gnome packages
@@ -52,7 +51,7 @@
               reboottouefi.extensionUuid
               just-perfection.extensionUuid
               clipboard-history.extensionUuid
-              smile-complementary-extension.extensionUuid
+              emoji-copy.extensionUuid
               tiling-shell.extensionUuid
               simple-taskbar.extensionUuid
             ];
@@ -74,18 +73,6 @@
 
           "org/gnome/shell/keybindings" = {
             toggle-message-tray = [ "<Shift><Super>v" ];
-          };
-
-          "org/gnome/shell/extensions/simple-taskbar" = {
-            dock-mode = true;
-            hot-edge-overview-enabled = false;
-            taskbar-highlight-style = "classic";
-            animate-appicon-hover-animation-type = "magnify";
-            animate-appicon-hover-animation-zoom = lib.gvariant.mkArray [
-              (lib.gvariant.mkDictionaryEntry "simple" (lib.gvariant.mkDouble 1.0))
-              (lib.gvariant.mkDictionaryEntry "ripple" (lib.gvariant.mkDouble 1.25))
-              (lib.gvariant.mkDictionaryEntry "magnify" (lib.gvariant.mkDouble 1.5))
-            ];
           };
 
           "org/gnome/shell/extensions/clipboard-history" = {
