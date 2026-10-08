@@ -1,9 +1,4 @@
 { inputs, config, pkgs, lib, ... }: let
-  colloid-gtk-custom = pkgs.colloid-gtk-theme.overrideAttrs {
-    themeVariants = [ "grey" ];
-    colorVariants = [ "dark" ];
-    tweaks = [ "rimless" ];
-  };
   conflux-icon-theme = pkgs.callPackage ../../modules/custom/themes/conflux-icon-theme.nix {
     src = inputs.conflux-icon-theme;
   };
@@ -28,6 +23,8 @@ in
     ../../home/elm.nix
     ../../home/webdev.nix
     ../../home/rider.nix
+    ../../home/zenbrowser.nix
+    ../../home/blackbox-terminal.nix
   ];
 
   # Packages
@@ -36,32 +33,32 @@ in
     conflux-icon-theme
 
     # Development
-    blackbox-terminal
     ungoogled-chromium
     git
     git-credential-manager
 
     # Utilities
     geekbench
-    nomachine-client
 
     # Work
     slack
 
     # Gaming
-    bottles
     wine
     winetricks
     protontricks
 
-    # GNOME theme
-    colloid-gtk-custom
-
     # Productivity
     protonmail-desktop
     obsidian
-    
-    # Misc
-    mediawriter
   ]);
+
+  # Configure dotfiles
+  home.file = {};
+
+  # Configure session variables
+  home.sessionVariables = {};
+
+  # Let Home Manager install and manage itself
+  programs.home-manager.enable = true;
 }
