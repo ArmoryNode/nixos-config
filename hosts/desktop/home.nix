@@ -57,7 +57,6 @@ in {
     obsidian
 
     # Gaming
-    bottles
     wine
     winetricks
     protontricks
