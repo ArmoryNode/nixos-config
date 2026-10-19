@@ -27,6 +27,8 @@
     };
     
     nix-jetbrains-plugins.url = "github:nix-community/nix-jetbrains-plugins";
+
+    negpy.url = "github:marcinz606/NegPy";
   };
 
   outputs = { nixpkgs, home-manager, lanzaboote, ... }@inputs: let
