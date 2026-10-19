@@ -1,14 +1,21 @@
 { config, pkgs, ... }: {
-    services.tailscale.enable = true;
-    services.tailscale.extraDaemonFlags = ["--no-logs-no-support"]; # Disable logging and telemetry
-
-    networking.firewall = {
-        checkReversePath = "loose";
-        allowedUDPPorts = [ 41641 ];
+    services.tailscale = {
+        enable = true;
+        extraDaemonFlags = ["--no-logs-no-support"]; # Disable logging and telemetry
+        package = pkgs.tailscale;
+        extraSetFlags = ["--operator=armorynode"];
     };
 
+    systemd.services.tailscaled-set.wantedBy = [ "multi-user.target" ];
+
     environment.systemPackages = with pkgs; [
-        tailscale
         tailscale-systray
     ];
+
+    networking.firewall = {
+        enable = true;
+        trustedInterfaces = [ config.services.tailscale.interfaceName ];
+        allowedUDPPorts = [ config.services.tailscale.port ];
+        checkReversePath = "loose";
+    };
 }

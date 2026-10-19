@@ -83,6 +83,11 @@ in {
     history.path = "${config.xdg.dataHome}/zsh/history";
   };
 
+  # Add tailscale systray
+  services.tailscale-systray = {
+    enable = true;
+  };
+
   # Configure dotfiles
   home.file = {};
 
