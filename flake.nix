@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-software-center.url = "github:snowfallorg/nix-software-center";
+    adwair-icon-theme = {
+      url = "github:kusaida/Adwair";
+      flake = false;
+    };
     conflux-icon-theme = {
       url = "github:MoshiurRahmanAdib/Conflux-Icon-Theme";
       flake = false;

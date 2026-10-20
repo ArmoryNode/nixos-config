@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "adwair-icon-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792408016,
+        "narHash": "sha256-nQOnTzffOsRxY8SKHgivuEwr0FIToxH6TBHtUA1pKmo=",
+        "owner": "kusaida",
+        "repo": "Adwair",
+        "rev": "2f9bc951c8ad83808db4ed27ecd6e494eea51c83",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kusaida",
+        "repo": "Adwair",
+        "type": "github"
+      }
+    },
     "conflux-icon-theme": {
       "flake": false,
       "locked": {
@@ -439,6 +455,7 @@
     },
     "root": {
       "inputs": {
+        "adwair-icon-theme": "adwair-icon-theme",
         "conflux-icon-theme": "conflux-icon-theme",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
