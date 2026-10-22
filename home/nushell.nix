@@ -10,6 +10,7 @@ in  {
     enable = true;
     configFile.source = ./nushell/config.nu;
     envFile.source = ./nushell/env.nu;
+    loadSessionVariables = true;
   };
 
   # Addons and plugins
