@@ -22,6 +22,8 @@
     tiling-shell
     simple-taskbar
     emoji-copy
+    color-picker
+    user-themes
   ]);
 
   # Exclude gnome packages
@@ -54,6 +56,8 @@
               emoji-copy.extensionUuid
               tiling-shell.extensionUuid
               simple-taskbar.extensionUuid
+              color-picker.extensionUuid
+              user-themes.extensionUuid
             ];
 
             favorite-apps = [
