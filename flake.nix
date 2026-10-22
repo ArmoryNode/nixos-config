@@ -4,14 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-software-center.url = "github:snowfallorg/nix-software-center";
-    adwair-icon-theme = {
-      url = "github:kusaida/Adwair";
-      flake = false;
-    };
+
     conflux-icon-theme = {
       url = "github:MoshiurRahmanAdib/Conflux-Icon-Theme";
       flake = false;
     };
+    
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
 
@@ -27,6 +25,11 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    adwair = {
+      url = "github:NAXLAB/adwair-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
