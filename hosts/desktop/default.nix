@@ -42,7 +42,6 @@ in
   # Add system packages  
   environment.systemPackages = with pkgs; [
     inputs.nix-software-center.packages.${pkgs.stdenv.hostPlatform.system}.nix-software-center
-    inputs.negpy.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     libgcc
     go
