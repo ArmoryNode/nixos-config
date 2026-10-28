@@ -1,7 +1,4 @@
 { inputs, config, pkgs, lib, ... }: let
-  adwair-icon-theme = pkgs.callPackage ../../modules/custom/themes/adwair-icon-theme.nix {
-    src = inputs.adwair-icon-theme;
-  };
   conflux-icon-theme = pkgs.callPackage ../../modules/custom/themes/conflux-icon-theme.nix {
     src = inputs.conflux-icon-theme;
   };
@@ -33,8 +30,8 @@ in
   # Packages
   home.packages = (with pkgs; [
     # Customization
-    adwair-icon-theme
     conflux-icon-theme
+    inputs.adwair.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Development
     ungoogled-chromium
