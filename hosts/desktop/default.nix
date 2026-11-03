@@ -6,6 +6,7 @@
   bootloader = ../../modules/bootloaders/lanzaboote.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
+  qemu = ../../modules/virtualization/qemu.nix;
   flatpak = ../../modules/misc/flatpak.nix;
   tailscale = ../../modules/networking/tailscale.nix;
   steam = ../../modules/gaming/steam.nix;
@@ -19,6 +20,7 @@ in
     bootloader
     desktopEnv
     podman
+    qemu
     flatpak
     tailscale
     steam
@@ -36,7 +38,7 @@ in
   users.users.armorynode = {
     isNormalUser = true;
     description = "ArmoryNode";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
   # Add system packages  
@@ -66,10 +68,6 @@ in
 
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [
-      dart-sass
-      deno
-    ];
   };
 
   # Configure home manager
