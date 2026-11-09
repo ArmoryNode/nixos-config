@@ -30,13 +30,12 @@ in
   # Configure firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 ];
   };
 
   users.users.armorynode = {
     isNormalUser = true;
     description = "ArmoryNode";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # Add system packages  

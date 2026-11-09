@@ -38,7 +38,7 @@ in
   users.users.armorynode = {
     isNormalUser = true;
     description = "ArmoryNode";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
   };
 
   # Add system packages  
