@@ -64,7 +64,6 @@ in {
 
     # Productivity
     protonmail-desktop
-    obsidian
 
     # Gaming
     wine
