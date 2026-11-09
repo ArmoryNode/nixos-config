@@ -2,6 +2,14 @@
   conflux-icon-theme = pkgs.callPackage ../../modules/custom/themes/conflux-icon-theme.nix {
     src = inputs.conflux-icon-theme;
   };
+  negpy = (inputs.negpy.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ 
+      inputs.negpy.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.wrapGAppsHook3
+    ];
+    buildInputs = (old.buildInputs or []) ++ [ 
+      inputs.negpy.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gtk3
+    ];
+  }));
 in {
   imports = [
     ../../home/common.nix
@@ -65,7 +73,7 @@ in {
 
     # Media
     pocket-casts
-    inputs.negpy.packages.${pkgs.stdenv.hostPlatform.system}.default
+    negpy
   ]);
 
   # Configure zshell
