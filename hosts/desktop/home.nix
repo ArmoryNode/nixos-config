@@ -41,6 +41,7 @@ in {
     fsautocomplete
     git-credential-manager
     claude-code
+    github-copilot-cli
 
     # Utilities
     zoxide
