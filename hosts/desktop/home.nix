@@ -51,6 +51,7 @@ in {
     geekbench
     sbctl
     flatpak-xdg-utils
+    flatpak-builder
 
     # Work
     slack
