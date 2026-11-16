@@ -16,7 +16,6 @@ in {
     profiles.default.extensions = (with pkgs.vscode-extensions; [
       github.copilot 
       ionide.ionide-fsharp
-      visualstudioexptteam.vscodeintellicode
       ms-dotnettools.csharp
       ms-dotnettools.csdevkit
       jnoortheen.nix-ide
