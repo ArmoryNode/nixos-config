@@ -35,6 +35,11 @@
     nix-jetbrains-plugins.url = "github:nix-community/nix-jetbrains-plugins";
 
     negpy.url = "github:marcinz606/NegPy";
+
+    winpodx = {
+      url = "github:kernalix7/winpodx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, lanzaboote, ... }@inputs: let

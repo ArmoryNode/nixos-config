@@ -423,6 +423,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_4",
         "vscode-server": "vscode-server",
+        "winpodx": "winpodx",
         "zen-browser": "zen-browser"
       }
     },
@@ -502,6 +503,26 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixos-vscode-server",
+        "type": "github"
+      }
+    },
+    "winpodx": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794372638,
+        "narHash": "sha256-6ugBPX3ABcTgaydkm/lj/ELa1GO7XVuF0C2URLIoyGU=",
+        "owner": "kernalix7",
+        "repo": "winpodx",
+        "rev": "b6a6d1cc70c67865935afcb6854fc5293ceb9cdd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kernalix7",
+        "repo": "winpodx",
         "type": "github"
       }
     },

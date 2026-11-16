@@ -5,6 +5,9 @@
   negpy = pkgs.callPackage ../../modules/custom/negpy-patched.nix {
     negpy = inputs.negpy;
   };
+  winpodx = pkgs.callPackage ../../modules/custom/winpodx-patched.nix {
+    winpodx = inputs.winpodx;
+  };
 in {
   imports = [
     ../../home/common.nix
@@ -61,6 +64,7 @@ in {
 
     # Productivity
     protonmail-desktop
+    winpodx
 
     # Gaming
     wine
