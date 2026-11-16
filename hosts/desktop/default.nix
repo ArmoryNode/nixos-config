@@ -66,6 +66,10 @@ in
 
   programs.nix-ld = {
     enable = true;
+    libraries = with pkgs; [
+      icu
+      krb5
+    ];
   };
 
   # Configure home manager
