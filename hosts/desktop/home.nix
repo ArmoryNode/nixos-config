@@ -56,6 +56,7 @@ in {
     sbctl
     flatpak-xdg-utils
     flatpak-builder
+    cyanrip
 
     # Work
     slack
