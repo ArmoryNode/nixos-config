@@ -16,7 +16,6 @@
   ]) ++ (with pkgs.gnomeExtensions; [
     blur-my-shell
     just-perfection
-    reboottouefi
     appindicator
     clipboard-history
     tiling-shell
