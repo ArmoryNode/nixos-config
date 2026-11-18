@@ -40,11 +40,11 @@
     "conflux-icon-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1794667012,
-        "narHash": "sha256-Ppa+wnTcty93HMROizm0NOr06qUujtJsbW9chiPtryU=",
+        "lastModified": 1794862417,
+        "narHash": "sha256-XgTdtlVBO7305tLwQ+jOctXSZoFekkgOQaRRC9jvPQ8=",
         "owner": "MoshiurRahmanAdib",
         "repo": "Conflux-Icon-Theme",
-        "rev": "f3808414e66ac8d32847c9cdcc6a657b69c6c792",
+        "rev": "b51625db823f8af1eaf1024148eaaca8dfe9491e",
         "type": "github"
       },
       "original": {
@@ -163,11 +163,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794715309,
-        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
+        "lastModified": 1794951907,
+        "narHash": "sha256-NGosvpSW9V3FAvmw7WGMznXT7TWyBdY8hZ7BJWvNxl8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
+        "rev": "f81dc528488ad2ea5ef29d326ae107beac5d93e1",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1794845234,
-        "narHash": "sha256-EFycEaCOemt9CpPbEYaIg9EDzVNTHIk7bLsvnGlTH8g=",
+        "lastModified": 1794943678,
+        "narHash": "sha256-2WWEac/Ay/ouxTw2AVRnxDwgVca8qc0VxQrAFbgwQKc=",
         "owner": "marcinz606",
         "repo": "NegPy",
-        "rev": "d88e48c5cf5312152087415a407e227b947d4fa2",
+        "rev": "9ad27eb545cd1eeec8721fc3a63ee9d692a369d6",
         "type": "github"
       },
       "original": {
