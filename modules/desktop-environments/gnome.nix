@@ -43,6 +43,7 @@
     enable = true;
     profiles.user.databases = [
       {
+        keyfiles = [ ./extension-config/blur-my-shell ];
         settings = {
           "org/gnome/shell" = {
             disable-user-extensions = false;
