@@ -17,6 +17,7 @@ in
     ../../home/vscode.nix
     ../../home/firefox.nix
     ../../home/fastfetch.nix
+    ../../home/claude-code.nix
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix

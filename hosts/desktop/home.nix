@@ -18,6 +18,7 @@ in {
     ../../home/btop.nix
     ../../home/bat.nix
     ../../home/dotnet.nix
+    ../../home/claude-code.nix
     ../../home/ollama.nix
     ../../home/zenbrowser.nix
     ../../home/webdev.nix
@@ -40,7 +41,6 @@ in {
     csharprepl
     fsautocomplete
     git-credential-manager
-    claude-code
     github-copilot-cli
 
     # Utilities
