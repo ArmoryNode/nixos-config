@@ -47,7 +47,7 @@ in
     go
     python3 
     distrobox
-    (pkgs.ffmpeg-full.override { withUnfree = true; })
+    (ffmpeg-full.override { withUnfree = true; })
     nurl
     libvlc
     vlc
