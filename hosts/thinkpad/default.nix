@@ -2,7 +2,7 @@
   hardwareConfig = ./hardware-configuration.nix;
   common = ../../modules/nixos/common.nix;
   desktopCommon = ../../modules/nixos/desktop.nix;
-  bootloader = ../../modules/bootloaders/grub2.nix;
+  bootloader = ../../modules/bootloaders/lanzaboote.nix;
   desktopEnv = ../../modules/desktop-environments/gnome.nix;
   podman = ../../modules/virtualization/podman.nix;
   flatpak = ../../modules/misc/flatpak.nix;
@@ -65,7 +65,13 @@ in
   };
 
   # Configure dynamic linking
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      icu
+      krb5
+    ];
+  };
 
   # Enable power management
   powerManagement.enable = true;
