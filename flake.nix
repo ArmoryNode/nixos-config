@@ -9,8 +9,13 @@
       flake = false;
     };
     
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-    nixos-wsl.url = "github:nix-community/nixos-wsl";
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+    };
+
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,13 +37,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    nix-jetbrains-plugins.url = "github:nix-community/nix-jetbrains-plugins";
+    nix-jetbrains-plugins = {
+      url = "github:nix-community/nix-jetbrains-plugins";
+    };
 
-    negpy.url = "github:marcinz606/NegPy";
+    negpy = {
+      url = "github:marcinz606/NegPy";
+    };
 
     winpodx = {
       url = "github:kernalix7/winpodx";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    claude-code = {
+      url = "github:sadjow/claude-code-nix";
     };
   };
 
