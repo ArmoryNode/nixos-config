@@ -8,6 +8,7 @@
   flatpak = ../../modules/misc/flatpak.nix;
   tailscale = ../../modules/networking/tailscale.nix;
   wireguard = ../../modules/networking/wireguard.nix;
+  hardening = ../../modules/security/hardening.nix;
   _1password = ../../modules/security/1password.nix;
 in
 {
@@ -20,6 +21,7 @@ in
     flatpak
     tailscale
     wireguard
+    hardening
     _1password
   ];
 

@@ -10,6 +10,7 @@
   flatpak = ../../modules/misc/flatpak.nix;
   tailscale = ../../modules/networking/tailscale.nix;
   steam = ../../modules/gaming/steam.nix;
+  hardening = ../../modules/security/hardening.nix;
   _1password = ../../modules/security/1password.nix;
 in
 {
@@ -24,6 +25,7 @@ in
     flatpak
     tailscale
     steam
+    hardening
     _1password
   ];
 
