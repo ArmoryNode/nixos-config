@@ -1,6 +1,5 @@
-{ inputs, pkgs, ... }: {
-  nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
-  home.packages = with pkgs; [
-    claude-code
-  ]
+{ pkgs, inputs, ... }: {
+  home.packages = [
+    inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
+  ];
 }
