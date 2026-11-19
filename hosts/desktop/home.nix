@@ -50,7 +50,6 @@ in {
     bat
     fastfetch
     geekbench
-    sbctl
     flatpak-xdg-utils
     flatpak-builder
     cyanrip
