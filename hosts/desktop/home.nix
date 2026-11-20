@@ -71,6 +71,7 @@ in {
     # Media
     pocket-casts
     negpy
+    yt-dlp
   ]);
 
   # Configure zshell
