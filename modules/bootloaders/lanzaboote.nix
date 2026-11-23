@@ -9,5 +9,8 @@
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
+    # Secure boot generations take up a lot of space
+    # Limit the number of generations
+    configurationLimit = 20;
   };
 }
