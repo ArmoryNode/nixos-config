@@ -37,8 +37,8 @@
     "fs.suid_dumpable" = 0;
 
     # More ASLR entropy
-    "vm.mmap_rnd_bits" = 32;
-    "vm.mmap_rnd_compat_bits" = 16;
+    # "vm.mmap_rnd_bits" = 32;
+    # "vm.mmap_rnd_compat_bits" = 16;
 
     # Network: ignore ICMP redirects and source routing
     "net.ipv4.conf.all.accept_redirects" = 0;
