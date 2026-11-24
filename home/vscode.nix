@@ -31,6 +31,7 @@ in {
       thenuprojectcontributors.vscode-nushell-lang
       tamasfe.even-better-toml
       denoland.vscode-deno
+      ms-vscode-remote.remote-ssh
     ]) ++ [
       ms-mssql
       ollama.ollama
